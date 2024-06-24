@@ -32,21 +32,25 @@ namespace NZWalks.API.Controllers
         {
             // Get data from database - Domain Models
             var regionsDomain = await _regionRepository.GetAllAsync();
+
+            /* Code below was replaced by code above
             // old code v1 - var regionsDomain = _dbContext.Regions.ToList();
             // old code v2 -  var regionsDomain = await _dbContext.Regions.ToListAsync(); // ToListAsync() is coming from Microsoft.EntityFrameworkCore
+            */
 
-            // Map Domain models to DTOs
-            //var regionsDto = new List<RegionDTO>();
-            //foreach (var regionDomain in regionsDomain)
-            //{
-            //    regionsDto.Add(new RegionDTO()
-            //    {
-            //        Id = regionDomain.Id,
-            //        Code = regionDomain.Code,
-            //        Name = regionDomain.Name,
-            //        RegionImageUrl = regionDomain.RegionImageUrl
-            //    });
-            //}
+            /* // Map Domain models to DTOs
+            var regionsDto = new List<RegionDTO>();
+            foreach (var regionDomain in regionsDomain)
+            {
+                regionsDto.Add(new RegionDTO()
+                {
+                    Id = regionDomain.Id,
+                    Code = regionDomain.Code,
+                    Name = regionDomain.Name,
+                    RegionImageUrl = regionDomain.RegionImageUrl
+                });
+            }
+            */
 
             //OR
 
@@ -116,7 +120,7 @@ namespace NZWalks.API.Controllers
             // Use Domain Model To create Region
             regionDomainModel = await _regionRepository.CreateAsync(regionDomainModel);
 
-            /* OLD CODE
+            /* OLD CODE (already used on the code above this)
             await _dbContext.Regions.AddAsync(regionDomainModel);
             await _dbContext.SaveChangesAsync();
             */
