@@ -2,7 +2,7 @@
 
 namespace NZWalks.API.Models.DTO
 {
-    public class AddWalkRequestDTO
+    public class UpdateWalkRequestDTO
     {
         [Required]
         [MaxLength(100, ErrorMessage = "Name has to be a maximum of 100 characters.")]
